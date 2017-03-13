@@ -1,0 +1,81 @@
+block content
+    .header-admin
+        .header-admin__name Панель администрирования
+        .header-admin__return
+            a.return__link(href="./") Вернутся на сайт
+
+    .main-admin
+        .w3-bar
+            button.w3-button.active(onclick="openTab(event, 'tab-1')") TAB 1
+            button.w3-button(onclick="openTab(event, 'tab-2')") TAB 2
+            button.w3-button(onclick="openTab(event, 'tab-3')") TAB 3
+            button.w3-button(onclick="openTab(event, 'tab-4')") TAB 4
+        #tab-1.tab-container
+            .tab-container__name Страница «Обо мне»
+                .form-container
+                    form.form#about(action='/save' method="POST")
+                        .status
+                        each index in items
+                            label.form__input-line= index.name
+                                input(name=index.name type="text" value=index.counts).form__input
+                        .form__btns.form__input-line
+                            input(name="" type="submit" value="Сохранить").form__btn-save
+        #tab-2.tab-container(style='display:none')
+            .tab-container__name Страница «Блог»
+            .form-container
+                form.form#blog(action='/addpost' method="POST")
+                    .form__subtitle Добавить запись в блог
+                    .status
+                    label.form__input-line
+                        input(name="title" type="text" placeholder="Название").form__input
+                    label.form__input-line
+                        input(name="date" type="text" placeholder="Дата").form__input
+                    textarea(placeholder="Содержание" name="text").form__textarea
+                    .form__btns.form__input-line
+                        input(name="" type="submit" value="Добавить").form__btn-send
+
+        #tab-3.tab-container(style='display:none')
+            .tab-container__name Страница «Мои работы»
+            .form-container
+                form.form#upload(action='/admin' method="POST" enctype="multipart/form-data")
+                    .form__subtitle Добавить работу
+                    .status
+                    label.form__input-line
+                        input(name="name" type="text" placeholder="Название проекта").form__input#file-name
+                    label.form__input-line
+                        input(name="desc" type="text" placeholder="Технологии").form__input#file-desc
+                    label.form__input-line
+                        input(name="plinks" type="text" placeholder="http://").form__input#file-plinks
+                    label.form__input-line
+                        input(name="photo" type="file" required accept="image/*").form__input#file-select
+                    .form__btns.form__input-line
+                        input(name="" type="submit" value="Добавить").form__btn-send
+
+        #tab-4.tab-container(style='display:none')
+            .tab-container__name TAB - 4
+
+    .admin-bg
+        .admin-bg__layer
+        .admin-bg__img
+    script.
+        function openTab(event, numberTab) {
+            var i,
+                tabcontent,
+                tablinks;
+
+            tabcontent = document.getElementsByClassName("tab-container");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("w3-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(numberTab).style.display = "block";
+            event.currentTarget.className += " active";}
+
+
+
+
+
+

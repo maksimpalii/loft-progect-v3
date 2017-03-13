@@ -1,0 +1,13 @@
+block content
+    .test-content
+        .form-container
+            form.form#upload(action='/upload' method="POST" enctype="multipart/form-data")
+                .form__subtitle Загрузите картинку на сервер
+                .status
+                label.form__input-line
+                    input(name="name" type="text" placeholder="Описание картинки").form__input#file-name
+                label.form__input-line
+                    input(name="photo" type="file" required accept="image/*").form__input#file-select
+                .form__btns.form__input-line
+                    input(name="" type="submit" value="Отправить").form__btn-send
+                    input(name="" type="reset" value="Очистить").form__btn-reset

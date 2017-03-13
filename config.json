@@ -1,0 +1,8 @@
+{
+  "upload":"public/upload",
+  "mail": {
+    "subject": "Сообщение с сайта-портфолио",
+    "user": "",
+    "pass": ""
+  }
+}
