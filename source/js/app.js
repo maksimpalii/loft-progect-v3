@@ -387,13 +387,17 @@ window.onscroll = function () {
     var wScroll = window.pageYOffset;
     parallax.init(wScroll);
 
-    var tops = $('.about-skills').offset().top;
-    var tops2 = document.querySelector('#about').offsetParent.scrollTop;
-    //console.log(tops + "-" +  wScroll + "," + tops2);
-    if (tops2 >= tops){
-        circles();
-    }
+    var circabout = document.querySelector('.page-about');
 
+    if (circabout){
+        var tops = $('.about-skills').offset().top;
+        var tops2 = document.querySelector('#about').offsetParent.scrollTop;
+        //console.log(tops + "-" +  wScroll + "," + tops2);
+        if (tops2 >= tops){
+            circles();
+        }
+
+    }
 
 
 }
