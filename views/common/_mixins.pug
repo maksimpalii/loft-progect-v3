@@ -17,32 +17,32 @@ mixin circles(groupsName)
             each vars in Circles.Frontend
                 li.skills-info__item
                     .skills-info__content
-                        svg.skills-info__circle
+                        svg.skills-info__circle.not-active
                             circle.skills-info__circle-under(cx="60" cy="60" r="50")
                             circle.skills-info__circle-above(cx="60" cy="60" r="50" style={opacity: vars.counts / 100} stroke-dasharray= vars.counts * 3.16  + ' 316')
-                        .skills-info__name= vars.name
+                        .skills-info__name.not-active= vars.name
         else if groupsName === 'Backend'
             each vars in Circles.Backend
                 li.skills-info__item
                     .skills-info__content
-                        svg.skills-info__circle
+                        svg.skills-info__circle.not-active
                             circle.skills-info__circle-under(cx="60" cy="60" r="50")
                             circle.skills-info__circle-above(cx="60" cy="60" r="50" style={opacity: vars.counts / 100} stroke-dasharray= vars.counts * 3.16 + ' 316')
-                        .skills-info__name= vars.name
+                        .skills-info__name.not-active= vars.name
         else if groupsName === 'WorkFlow'
             each vars in Circles.WorkFlow
                 li.skills-info__item
                     .skills-info__content
-                        svg.skills-info__circle
+                        svg.skills-info__circle.not-active
                             circle.skills-info__circle-under(cx="60" cy="60" r="50")
                             circle.skills-info__circle-above(cx="60" cy="60" r="50" style={opacity: vars.counts / 100} stroke-dasharray= vars.counts * 3.16 + ' 316')
-                        .skills-info__name= vars.name
+                        .skills-info__name.not-active= vars.name
         else
             each vars in Circles.None
                 li.skills-info__item
                     .skills-info__content
-                        svg.skills-info__circle
+                        svg.skills-info__circle.not-active
                             circle.skills-info__circle-under(cx="60" cy="60" r="50")
                             circle.skills-info__circle-above(cx="60" cy="60" r="50" style={opacity: vars.counts / 100} stroke-dasharray= vars.counts * 3.16 + ' 316')
-                        .skills-info__name= vars.name
+                        .skills-info__name.not-active= vars.name
 

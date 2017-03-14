@@ -386,7 +386,30 @@ window.onresize = function () {
 window.onscroll = function () {
     var wScroll = window.pageYOffset;
     parallax.init(wScroll);
+
+    var tops = $('.about-skills').offset().top;
+    var tops2 = document.querySelector('#about').offsetParent.scrollTop;
+    //console.log(tops + "-" +  wScroll + "," + tops2);
+    if (tops2 >= tops){
+        circles();
+    }
+
+
+
 }
+function circles(){
+
+    var tst = document.querySelectorAll('.skills-info__circle');
+    var tst2 = document.querySelectorAll('.skills-info__name');
+
+    for (var i = 0; i <= tst.length; i++){
+            $(tst[i]).delay(2000).removeClass("not-active");
+    }
+    for (var i = 0; i <= tst2.length; i++){
+        $(tst2[i]).delay(2000).removeClass("not-active");
+    }
+}
+
 preloader.init();
 
 var slider = (function () {

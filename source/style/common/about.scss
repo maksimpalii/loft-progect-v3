@@ -522,6 +522,13 @@
     transform: scale(0.92);
   }
 }
+.skills-info__circle-under{opacity: 1; transition: 1s;}
+.skills-info__circle-above{transition: 1s;}
+.skills-info__name{transition: 1s;}
+.not-active .skills-info__circle-above{ stroke-dasharray: 0 316;}
+.not-active .skills-info__circle-under{ opacity: 0;}
+.not-active.skills-info__name{ opacity: 0;}
+
 
 .skills-info__name {
   position: absolute;
