@@ -16,8 +16,9 @@ block content
                     form.form#about(action='/save' method="POST")
                         .status
                         each index in items
-                            label.form__input-line= index.name
+                            label.form__input-line(id= index.group)= index.name
                                 input(name=index.name type="text" value=index.counts).form__input
+
                         .form__btns.form__input-line
                             input(name="" type="submit" value="Сохранить").form__btn-save
         #tab-2.tab-container(style='display:none')

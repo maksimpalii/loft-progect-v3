@@ -8,9 +8,13 @@ mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://loftportfolio:1q2w3e4r@ds123080.mlab.com:23080/inworldsloft');
 
 //логин и пароль, изначально пустые
-let name = '',
+let group = '',
+    name = '',
     counts = '';
-
+//спрашиваем логин
+rl.question('Группа: ', answer => {
+    //записываем введенный логин
+    group = answer;
 //спрашиваем логин
 rl.question('Название: ', answer => {
     //записываем введенный логин
@@ -24,18 +28,21 @@ rl.question('Название: ', answer => {
         //завершаем ввод
         rl.close();
     });
+    });
 });
 
 //когда ввод будет завершен
 rl.on('close', function()  {
     //подключаем модель пользователя
     //require('./models/frontend');
-    require('./models/backend');
+    require('./models/workflow');
+    //require('./models/backend');
 
     //создаем экземпляр пользователя и указываем введенные данные
     //const Circle = mongoose.model('frontend'),
-    const Circle = mongoose.model('backend'),
-        circles = new Circle({name: name, counts: counts});
+    //const Circle = mongoose.model('frontend'),
+    const Circle = mongoose.model('workflow'),
+        circles = new Circle({group: group, name: name, counts: counts});
 
     //пытаемся найти пользователя с таким логином
     Circle

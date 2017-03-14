@@ -6,7 +6,23 @@ const path = require('path');
 const mongoose = require('mongoose');
 const config = require('../config.json');
 
-router.get('/', function (req, res) {
+
+
+const isAdmin = (req, res, next) => {
+    // если в сессии текущего пользователя есть пометка о том, что он является
+    // администратором
+    if (req.session.isAdmin) {
+        //то всё хорошо :)
+        return next();
+    }
+    //если нет, то перебросить пользователя на главную страницу сайта
+    res.redirect('/');
+};
+
+
+
+
+router.get('/', isAdmin, function (req, res) {
     let obj = {
         title: "Панель администрирования",
         author: "Максим Палий",
@@ -15,12 +31,14 @@ router.get('/', function (req, res) {
         bodyClass: "page-admin"
     };
     const Model2 = mongoose.model('frontend');
-    const Model3 = mongoose.model('backend');
+    //const Model3 = mongoose.model('backend');
+    //const Model4 = mongoose.model('workflow');
+
     Model2.find().then(function (items) {
         Object.assign(obj, { items: items });
 
         res.render('pages/admin', obj);
-    });
+        });
 
 });
 

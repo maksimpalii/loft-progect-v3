@@ -266,7 +266,8 @@ function prepareSendPost(e) {
 
 //---- block Blog
 
-const formLogin = document.querySelector('#login');
+//const formLogin = document.querySelector('#login');
+const formLogin = document.querySelector('#logInForm');
 
 if (formLogin) {
     formLogin.addEventListener('submit', prepareAuth);
@@ -274,7 +275,7 @@ if (formLogin) {
 
 function prepareAuth(e) {
     e.preventDefault();
-    let resultContainer = document.querySelector('.status');
+    let resultContainer = document.querySelector('#logInForm .status');
     let data = {
         login: formLogin.login.value,
         password: formLogin.password.value
@@ -282,6 +283,10 @@ function prepareAuth(e) {
     resultContainer.innerHTML = 'Sending...';
     sendAjaxJson('/login', data, function (data) {
         resultContainer.innerHTML = data;
+        if(data == "Авторизация успешна!"){
+            console.log("done");
+            document.location.href = '/admin';
+        }
     });
 }
 
@@ -363,7 +368,7 @@ function sendAjaxJson(url, data, cb) {
     xhr.onload = function (e) {
         let result = JSON.parse(xhr.responseText);
         cb(result.status);
-        clearPostForm();
+        //clearPostForm();
     };
     xhr.send(JSON.stringify(data));
 }

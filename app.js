@@ -23,6 +23,7 @@ mongoose.connect('mongodb://loftportfolio:1q2w3e4r@ds123080.mlab.com:23080/inwor
 require('./models/blog');
 require('./models/frontend');
 require('./models/backend');
+require('./models/workflow');
 require('./models/pic');
 require('./models/user');
 

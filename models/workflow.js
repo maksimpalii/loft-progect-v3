@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const FrontendSchema = new Schema({
+const WorkflowSchema = new Schema({
     group: {
         type: String
     },
@@ -14,4 +14,4 @@ const FrontendSchema = new Schema({
     }
 });
 
-mongoose.model('frontend', FrontendSchema);
+mongoose.model('workflow', WorkflowSchema);
