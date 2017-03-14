@@ -30,12 +30,13 @@ router.get('/', isAdmin, function (req, res) {
         keywords: "Панель администрирования",
         bodyClass: "page-admin"
     };
-    const Model2 = mongoose.model('frontend');
+    //const Model2 = mongoose.model('frontend');
+    const Model = mongoose.model('skills');
     //const Model3 = mongoose.model('backend');
     //const Model4 = mongoose.model('workflow');
 
-    Model2.find().then(function (items) {
-        Object.assign(obj, { items: items });
+    Model.find().then(function (skills) {
+        obj.skills = skills;
 
         res.render('pages/admin', obj);
         });

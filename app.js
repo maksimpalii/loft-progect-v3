@@ -21,6 +21,7 @@ mongoose.connect('mongodb://loftportfolio:1q2w3e4r@ds123080.mlab.com:23080/inwor
 
 //подключаем модели(сущности, описывающие коллекции базы данных)
 require('./models/blog');
+require('./models/skills');
 require('./models/frontend');
 require('./models/backend');
 require('./models/workflow');
