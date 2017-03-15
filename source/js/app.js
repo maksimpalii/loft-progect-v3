@@ -305,9 +305,16 @@ function prepareSave(e) {
     e.preventDefault();
     let resultContainer = document.querySelector('#about .status');
     let data = {
-        HTML5: formAbout.HTML5.value,
-        CSS3: formAbout.CSS3.value,
-        JavaScript: formAbout.JavaScript.value
+       f1: formAbout.f1.value,
+        f2: formAbout.f2.value,
+        f3: formAbout.f3.value,
+        b1: formAbout.b1.value,
+        b2: formAbout.b2.value,
+        b3: formAbout.b3.value,
+        b4: formAbout.b4.value,
+        w1: formAbout.w1.value,
+        w2: formAbout.w2.value,
+        w3: formAbout.w3.value
     };
     resultContainer.innerHTML = 'Sending...';
     sendAjaxJson('/save', data, function (data) {

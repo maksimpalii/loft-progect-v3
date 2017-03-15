@@ -19,7 +19,7 @@ block content
                             .name #{skill.group}
                             each index in skill.items
                                 label.form__input-line #{index.name}
-                                    input(name=index.name type="text" value=index.counts).form__input
+                                    input(name=index.id type="text" value=index.counts).form__input
 
                         .form__btns.form__input-line
                             input(name="" type="submit" value="Сохранить").form__btn-save
