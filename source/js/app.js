@@ -227,7 +227,6 @@ function prepareSendFile(e) {
     formData.append('name', name);
     formData.append('desc', desc);
     formData.append('plinks', plinks);
-    //  formData.append('name', name, desc, plinks);
 
     resultContainer.innerHTML = 'Uploading...';
     fileUpload('/admin', formData, function (data) {
@@ -261,6 +260,9 @@ function prepareSendPost(e) {
     resultContainer.innerHTML = 'Sending...';
     sendAjaxJson('/addpost', data, function (data) {
         resultContainer.innerHTML = data;
+        if (data == 'Запись успешно добавлена'){
+            formBlog.reset();
+        }
     });
 }
 
@@ -360,13 +362,7 @@ function prepareSendMail(e) {
         }
     });
 }
-function clearPostForm() {
-    var formBlog = document.querySelector('#blog');
-    if (formBlog) {
-        formBlog.reset();
-    }
 
-}
 
 function sendAjaxJson(url, data, cb) {
     let xhr = new XMLHttpRequest();
@@ -375,7 +371,7 @@ function sendAjaxJson(url, data, cb) {
     xhr.onload = function (e) {
         let result = JSON.parse(xhr.responseText);
         cb(result.status);
-        //clearPostForm();
+
     };
     xhr.send(JSON.stringify(data));
 }
@@ -410,18 +406,31 @@ window.onscroll = function () {
 }
 function circles(){
 
-    var tst = document.querySelectorAll('.skills-info__circle');
-    var tst2 = document.querySelectorAll('.skills-info__name');
+    var skinfo = document.querySelectorAll('.skills-info__circle');
+    var skname = document.querySelectorAll('.skills-info__name');
+    var sktitle = document.querySelectorAll('.skills-info__title');
 
-    for (var i = 0; i <= tst.length; i++){
-            $(tst[i]).delay(2000).removeClass("not-active");
+    for (var i = 0; i <= sktitle.length; i++){
+        $(sktitle[i]).removeClass("not-active");
     }
-    for (var i = 0; i <= tst2.length; i++){
-        $(tst2[i]).delay(2000).removeClass("not-active");
+    for (var i = 0; i <= skinfo.length; i++){
+            $(skinfo[i]).removeClass("not-active");
+    }
+    for (var i = 0; i <= skname.length; i++){
+        $(skname[i]).removeClass("not-active");
     }
 }
 
 preloader.init();
+var slact = document.querySelector('.slider-main');
+if (slact){
+    $(".slider-info li:nth-child(1)" ).addClass('active');
+    $(".slider-imgs__box li:nth-child(1)" ).addClass('active');
+    $(".slider-imgs__down li:nth-last-child(1)" ).addClass('active');
+    $(".slider-imgs__up li:nth-child(2)" ).addClass('active');
+
+
+}
 
 var slider = (function () {
     var counter = 0,

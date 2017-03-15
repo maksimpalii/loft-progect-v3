@@ -47,17 +47,17 @@ block content
                                              |   вам полезен
                     .skills-info__desc Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
                     ul.skills-info__group
-                        li.skills-info__items
-                            .skills-info__title Frontend
-                            +circles('Frontend')
-                        li.skills-info__items
-                            .skills-info__title Backend
-                            +circles('Backend')
-                        li.skills-info__items
-                            .skills-info__title WorkFlow
-                            +circles('WorkFlow')
-
-
+                        each skill in skills
+                            li.skills-info__items
+                                .skills-info__title.not-active #{skill.group}
+                                ul.skills-info__list
+                                    each index in skill.items
+                                        li.skills-info__item
+                                            .skills-info__content
+                                                svg.skills-info__circle.not-active
+                                                    circle.skills-info__circle-under(cx="60" cy="60" r="50")
+                                                    circle.skills-info__circle-above(cx="60" cy="60" r="50" style={opacity: index.counts / 100} stroke-dasharray= index.counts * 3.16 + ' 316')
+                                                .skills-info__name.not-active #{index.name}
         section.section-map
             .section-map__container
                 .map-info__title Контакты

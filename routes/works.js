@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
 const config = require('../config.json');
+const mongoose = require('mongoose');
 const smtpTransport = require('nodemailer-smtp-transport');
 
 router.get('/', function (req, res) {
@@ -12,7 +13,13 @@ router.get('/', function (req, res) {
         keywords: "ключевые слова Works",
         bodyClass: "page-works"
     };
+    const Model = mongoose.model('pic');
+    Model.find().then(items => {
+        Object.assign(obj, {items: items});
     res.render('pages/works', obj);
+});
+
+
 });
 
 

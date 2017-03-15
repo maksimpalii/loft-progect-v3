@@ -524,11 +524,34 @@
 }
 .skills-info__circle-under{opacity: 1; transition: 1s;}
 .skills-info__circle-above{transition: 1s;}
-.skills-info__name{transition: 1s;}
+.skills-info__name, .skills-info__title{transition: 1s;}
 .not-active .skills-info__circle-above{ stroke-dasharray: 0 316;}
 .not-active .skills-info__circle-under{ opacity: 0;}
 .not-active.skills-info__name{ opacity: 0;}
+.not-active.skills-info__title{ opacity: 0;}
 
+.skills-info__items:nth-child(1) .skills-info__item:nth-child(1) .skills-info__circle .skills-info__circle-under{transition-delay: 0.1s;}
+.skills-info__items:nth-child(1) .skills-info__item:nth-child(1) .skills-info__circle .skills-info__circle-above{transition-delay: 0.1s;}
+.skills-info__items:nth-child(1) .skills-info__item:nth-child(2) .skills-info__circle .skills-info__circle-under{transition-delay: 0.2s;}
+.skills-info__items:nth-child(1) .skills-info__item:nth-child(2) .skills-info__circle .skills-info__circle-above{transition-delay: 0.2s;}
+.skills-info__items:nth-child(1) .skills-info__item:nth-child(3) .skills-info__circle .skills-info__circle-under{transition-delay: 0.3s;}
+.skills-info__items:nth-child(1) .skills-info__item:nth-child(3) .skills-info__circle .skills-info__circle-above{transition-delay: 0.3s;}
+
+.skills-info__items:nth-child(2) .skills-info__item:nth-child(1) .skills-info__circle .skills-info__circle-under{transition-delay: 0.4s;}
+.skills-info__items:nth-child(2) .skills-info__item:nth-child(1) .skills-info__circle .skills-info__circle-above{transition-delay: 0.4s;}
+.skills-info__items:nth-child(2) .skills-info__item:nth-child(2) .skills-info__circle .skills-info__circle-under{transition-delay: 0.5s;}
+.skills-info__items:nth-child(2) .skills-info__item:nth-child(2) .skills-info__circle .skills-info__circle-above{transition-delay: 0.5s;}
+.skills-info__items:nth-child(2) .skills-info__item:nth-child(3) .skills-info__circle .skills-info__circle-under{transition-delay: 0.6s;}
+.skills-info__items:nth-child(2) .skills-info__item:nth-child(3) .skills-info__circle .skills-info__circle-above{transition-delay: 0.6s;}
+.skills-info__items:nth-child(2) .skills-info__item:nth-child(4) .skills-info__circle .skills-info__circle-under{transition-delay: 0.7s;}
+.skills-info__items:nth-child(2) .skills-info__item:nth-child(4) .skills-info__circle .skills-info__circle-above{transition-delay: 0.7s;}
+
+.skills-info__items:nth-child(3) .skills-info__item:nth-child(1) .skills-info__circle .skills-info__circle-under{transition-delay: 0.8s;}
+.skills-info__items:nth-child(3) .skills-info__item:nth-child(1) .skills-info__circle .skills-info__circle-above{transition-delay: 0.8s;}
+.skills-info__items:nth-child(3) .skills-info__item:nth-child(2) .skills-info__circle .skills-info__circle-under{transition-delay: 0.9s;}
+.skills-info__items:nth-child(3) .skills-info__item:nth-child(2) .skills-info__circle .skills-info__circle-above{transition-delay: 0.9s;}
+.skills-info__items:nth-child(3) .skills-info__item:nth-child(3) .skills-info__circle .skills-info__circle-under{transition-delay: 1s;}
+.skills-info__items:nth-child(3) .skills-info__item:nth-child(3) .skills-info__circle .skills-info__circle-above{transition-delay: 1s;}
 
 .skills-info__name {
   position: absolute;

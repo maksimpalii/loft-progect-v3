@@ -15,12 +15,13 @@ block content
                 .form-container
                     form.form#about(action='/save' method="POST")
                         .status
-                        each skill in skills
-                            .name #{skill.group}
-                            each index in skill.items
-                                label.form__input-line #{index.name}
-                                    input(name=index.id type="text" value=index.counts).form__input
-
+                        .skill_group
+                            each skill in skills
+                                .skill_group__items
+                                    .name #{skill.group}
+                                    each index in skill.items
+                                        label.form__input-line #{index.name}
+                                            input(name=index.id type="text" value=index.counts).form__input
                         .form__btns.form__input-line
                             input(name="" type="submit" value="Сохранить").form__btn-save
         #tab-2.tab-container(style='display:none')
