@@ -46,8 +46,8 @@ router.get('/', isAdmin, function (req, res) {
 
 
 
-//router.post('/', isAdmin, function (req, res) {
-router.post('/', function (req, res) {
+router.post('/', isAdmin, function (req, res) {
+//router.post('/', function (req, res) {
     let form = new formidable.IncomingForm();
     form.uploadDir = config.upload;
     form.parse(req, function (err, fields, files) {

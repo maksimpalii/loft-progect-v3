@@ -307,7 +307,7 @@ function prepareSave(e) {
     let data = {
         HTML5: formAbout.HTML5.value,
         CSS3: formAbout.CSS3.value,
-        JavaScript: formAbout.JavaScript.value,
+        JavaScript: formAbout.JavaScript.value
     };
     resultContainer.innerHTML = 'Sending...';
     sendAjaxJson('/save', data, function (data) {
