@@ -22,9 +22,6 @@ mongoose.connect('mongodb://loftportfolio:1q2w3e4r@ds123080.mlab.com:23080/inwor
 //подключаем модели(сущности, описывающие коллекции базы данных)
 require('./models/blog');
 require('./models/skills');
-require('./models/frontend');
-require('./models/backend');
-require('./models/workflow');
 require('./models/pic');
 require('./models/user');
 
@@ -61,9 +58,7 @@ app.use('/about', require('./routes/about'));
 app.use('/admin', require('./routes/admin'));
 
 
-app.use('/test', require('./routes/test'));
 app.use('/upload', require('./routes/upload'));
-app.use('/blogs', require('./routes/blogs'));
 app.use('/addpost', require('./routes/addpost'));
 app.use('/save', require('./routes/save'));
 app.use('/login', require('./routes/login'));
