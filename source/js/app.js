@@ -389,8 +389,7 @@ var blogscontent = document.querySelector('.section-blog__content');
 var blogsmenu = (function () {
     var menublogs = document.querySelector('.section-blog__list'),
         menuOffsetTop = $('.section-blog__list').offset().top;
-    if ($(document).scrollTop() >= menuOffsetTop){
-        //if (($(document).scrollTop() >= menuOffsetTop) && ($(window).width() > 753)){
+    if (($(document).scrollTop() >= menuOffsetTop) && ($(window).width() > 753)){
 
         menublogs.classList.add('fixed-position');
     } else {
