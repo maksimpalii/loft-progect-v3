@@ -386,20 +386,28 @@ menuBlog();
 
 var blogscontent = document.querySelector('.section-blog__content');
 
-var blogsmenu = (function () {
-    var menublogs = document.querySelector('.section-blog__list'),
-        menuOffsetTop = $('.section-blog__list').offset().top;
-    if (($(document).scrollTop() >= menuOffsetTop) && ($(window).width() > 753)){
-
-        menublogs.classList.add('fixed-position');
-    } else {
-        menublogs.classList.remove('fixed-position');
-    }
-
-});
-
 if (blogscontent){
-    blogsmenu();
+    var  menuOffsetTop = $('.section-blog__list').offset().top;
+    $(document).scroll(function () {
+        if ($(document).scrollTop() >= menuOffsetTop && $(window).width() > 753){
+            $('.section-blog__list').addClass('fixed-position');
+        } else {
+            $('.section-blog__list').removeClass('fixed-position');
+        }
+
+
+        $(".section-blog__post").each(function () {
+            if (($(document).scrollTop() - $(this).offset().top) >= 0){
+                $(".section-blog__item").each(function () {
+                    $(this).removeClass('section-blog__item--active');
+
+                });
+                var currentLink = $(".articles__link[href=\'#" + $(this).attr('id') + "\']");
+                currentLink.parent().addClass('section-blog__item--active');
+            }
+        });
+    });
+
     $(".articles__link").on("click", function (event) {
         event.preventDefault();
         var ids  = $(this).attr('href'),
@@ -408,23 +416,6 @@ if (blogscontent){
     });
 }
 
-var blogsnav = (function (wScroll) {
-            $(".section-blog__post").each(function () {
-                if ((wScroll - $(this).offset().top) >= 0){
-                    $(".section-blog__item").each(function () {
-                        $(this).removeClass('section-blog__item--active');
-
-                    });
-                    var currentLink = $(".articles__link[href=\'#" + $(this).attr('id') + "\']");
-                    currentLink.parent().addClass('section-blog__item--active');
-                }
-            });
-    });
-
-
-
-
-
 window.onresize = function () {
     // blur.set();
 
@@ -432,11 +423,6 @@ window.onresize = function () {
 window.onscroll = function () {
     var wScroll = window.pageYOffset;
     parallax.init(wScroll);
-
-    if (blogscontent) {
-        blogsnav(wScroll);
-    }
-
 
     var circabout = document.querySelector('.page-about');
 
