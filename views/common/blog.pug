@@ -23,12 +23,13 @@ block content
                 .section-blog__inner
                     .section-blog__menu
                         ul.section-blog__list
-                            each index in items
-                                li.section-blog__item= index.title
+                            each index, id in items
+                                li.section-blog__item
+                                    a.articles__link(href="#article-" + id + "")= index.title
                         .menu-blog-nav.display_tablets_yes
                     .section-blog__content
-                        each index in items
-                            .section-blog__post
+                        each index, id in items
+                            .section-blog__post(id="article-" + id + "")
                                 .section-blog__title= index.title
                                 .section-blog__date= index.date
                                 .section-blog__text

@@ -1,11 +1,15 @@
 .section-profile_style_blog {
   height: 400px;
   min-height: 400px;
-  @include iphone{
+  @include iphone {
     height: 100vh;
   }
 }
-.page-blog{width: 100%;}
+
+.page-blog {
+  width: 100%;
+}
+
 .style_blog-name {
   font-family: 'Sansus-Webissimo-Regular';
   font-size: 63px;
@@ -60,10 +64,10 @@
   display: inline-block;
   vertical-align: top;
   transition-duration: 0.5s;
-  @include tablets{
+  @include tablets {
     z-index: 100;
     position: fixed;
-    left:-267px;
+    left: -267px;
     background: #253468;
     height: 100vh;
     display: flex;
@@ -73,30 +77,34 @@
     align-items: center;
   }
 }
-.section-blog__menu.active{
-  left:0;
-  box-shadow: 3px 0px 10px 0px rgba(0,0,0,0.3);
+
+.section-blog__menu.active {
+  left: 0;
+  box-shadow: 3px 0px 10px 0px rgba(0, 0, 0, 0.3);
 }
-.menu-blog-nav{
+
+.menu-blog-nav {
   cursor: pointer;
   display: none;
   width: 100px;
   border-radius: 50%;
   height: 100px;
   background: #253468;
-  box-shadow: 3px 0px 10px 0px rgba(0,0,0,0.3);
+  box-shadow: 3px 0px 10px 0px rgba(0, 0, 0, 0.3);
   position: absolute;
   top: 50%;
   right: -15px;
   z-index: -1;
 
 }
-.display_tablets_yes{
+
+.display_tablets_yes {
   display: block;
 }
+
 .section-blog__content {
   width: 65%;
-  @include tablets{
+  @include tablets {
     width: 95%;
   }
 
@@ -148,7 +156,11 @@
 .section-blog__list {
   text-align: right;
   width: 267px;
-  @include tablets{
+  &.fixed-position {
+    position: fixed;
+    top: 15px;
+  }
+  @include tablets {
     width: 250px;
     z-index: 10;
     background: #253468;
@@ -162,9 +174,32 @@
   font-family: "Roboto-Regular";
   line-height: 26px;
   padding: 15px 18px 11px 0;
-  @include tablets{
+  @include tablets {
     color: #fff;
     opacity: 0.7;
+  }
+}
+
+.section-blog__item--active {
+  border-right: 2px solid #004cd1;
+
+  .articles__link{
+    color: #004cd1;
+  }
+  @include tablets{
+    border-right: 2px solid #fff;
+    color: #004cd1;
+    .articles__link{
+      color: #fff;
+    }
+  }
+}
+
+.articles__link {
+  color: #455a64;
+  text-decoration: none;
+  @include tablets {
+    color: #fff;
   }
 }
 
@@ -172,13 +207,12 @@
   color: #083c96;
   font-family: "Roboto-Medium";
   border-right: 3px solid #0548be;
-  @include tablets{
+  @include tablets {
     border: none;
     color: #fff;
     opacity: 1;
   }
 }
-
 
 .page-blog .section-footer {
   position: relative;
